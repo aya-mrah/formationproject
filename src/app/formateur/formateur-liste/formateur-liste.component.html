@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Formateur List</h2>
+    <button routerLink="/addformateur"  class="btn btn-primary">Add Formateur</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Tel</th>
+        <th>Type</th>
+        <th>Organisme</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let formateur of formateurs| async">
+        <td>{{formateur.id}}</td>
+        <td>{{formateur.nom}}</td>
+        <td>{{formateur.prenom}}</td>
+        <td>{{formateur.email}}</td>
+        <td>{{formateur.tel}}</td>
+        <td>{{formateur.type}}</td>
+        <td>{{formateur.organisme?.libelle}}</td>
+        <td> <button (click)="deleteFormateur(formateur.id)" class="btn btn-danger">Delete</button>
+          <button (click)="formateurDetails(formateur.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateFormateur(formateur.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

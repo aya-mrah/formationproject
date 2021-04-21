@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Formations List</h2>
+    <button routerLink="/addformation"  class="btn btn-primary">Add Formation</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Type</th>
+        <th>Nb Session</th>
+        <th>Duree</th>
+        <th>Budget</th>
+        <th>Domaine</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let formation of formations| async">
+        <td>{{formation.id}}</td>
+        <td>{{formation.titre}}</td>
+        <td>{{formation.type_formation}}</td>
+        <td>{{formation.nbSession}}</td>
+        <td>{{formation.duree}}</td>
+        <td>{{formation.budget}}</td>
+        <td>{{formation.domaine.libelle}}</td>
+        <td>
+          <button (click)="deleteFormation(formation.id)" class="btn btn-danger">Delete</button>
+          <button (click)="formationDetails(formation.id)"  class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button  (click)="updateFormation(formation.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>User List</h2>
+    <button routerLink="/addUser"  class="btn btn-primary">Add User</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Code</th>
+        <th>Login</th>
+        <th>Mot de passe</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users | async">
+        <td>{{user.code}}</td>
+        <td>{{user.login}}</td>
+        <td>{{user.password}}</td>
+        <td><button (click)="deleteUser(user.code)" class="btn btn-danger">Delete</button>
+          <button (click)="userDetails(user.code)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateUser(user.code)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Domaine List</h2>
+    <button routerLink="/adddomaine"  class="btn btn-primary">Add Domaine</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Libelle</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let domaine of domaines | async">
+        <td>{{domaine.id}}</td>
+        <td>{{domaine.libelle}}</td>
+        <td>
+          <button (click)="deleteDomaine(domaine.id)" class="btn btn-danger">Delete</button>
+          <button (click)="domaineDetails(domaine.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateDomaine(domaine.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

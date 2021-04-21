@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Profil List</h2>
+    <button routerLink="/addprofile"  class="btn btn-primary">Add Profil</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Libelle</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let profil of profils | async">
+        <td>{{profil.id}}</td>
+        <td>{{profil.libelle}}</td>
+        <td><button (click)="deleteProfil(profil.id)" class="btn btn-danger">Delete</button>
+          <button (click)="profilDetails(profil.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateProfil(profil.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

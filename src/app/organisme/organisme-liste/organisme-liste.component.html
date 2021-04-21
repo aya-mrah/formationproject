@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Organisme List</h2>
+    <button routerLink="/addorganisme"  class="btn btn-primary">Add Organisme</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Libelle</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let organisme of organismes | async">
+        <td>{{organisme.id}}</td>
+        <td>{{organisme.libelle}}</td>
+        <td><button (click)="deleteOrganisme(organisme.id)" class="btn btn-danger">Delete</button>
+          <button (click)="organismeDetails(organisme.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateOrganisme(organisme.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

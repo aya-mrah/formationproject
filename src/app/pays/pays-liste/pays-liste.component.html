@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Pays List</h2>
+    <button routerLink="/addpays"  class="btn btn-primary">Add Pays</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Libelle</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pays of payss | async">
+        <td>{{pays.id}}</td>
+        <td>{{pays.libelle}}</td>
+        <td><button (click)="deletePays(pays.id)" class="btn btn-danger">Delete</button>
+          <button (click)="paysDetails(pays.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updatePays(pays.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
