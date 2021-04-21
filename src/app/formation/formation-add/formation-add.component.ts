@@ -18,7 +18,7 @@ import {DomaineService} from "src/app/service//domaine.service";
   styleUrls: ['./formation-add.component.css']
 })
 export class FormationAddComponent implements OnInit {
-
+//c
   formation: Formation = new Formation();
     submitted = false;
     domaines: any;
